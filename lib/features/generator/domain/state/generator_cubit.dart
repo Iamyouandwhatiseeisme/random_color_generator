@@ -53,22 +53,6 @@ class GeneratorCubit extends Cubit<GeneratorState> {
   void realignGradients() {
     final randomGradientDirection1 = generatorService.generateRandomDirection();
     final randomGradientDirection2 = generatorService.generateRandomDirection();
-    if (state.backgroundColor != null &&
-        state.backgroundColor!.colors.isNotEmpty) {
-      emit(
-        state.copyWith(
-          backgroundColor: LinearGradient(
-            begin: randomGradientDirection1,
-            end: randomGradientDirection2,
-            colors: [
-              state.backgroundColor!.colors.first,
-              state.backgroundColor!.colors.last,
-            ],
-          ),
-        ),
-      );
-      return;
-    }
 
     emit(
       state.copyWith(
@@ -76,8 +60,8 @@ class GeneratorCubit extends Cubit<GeneratorState> {
           begin: randomGradientDirection1,
           end: randomGradientDirection2,
           colors: [
-            generatorService.generateColor(),
-            generatorService.generateColor(),
+            state.backgroundColor.colors.first,
+            state.backgroundColor.colors.last,
           ],
         ),
       ),

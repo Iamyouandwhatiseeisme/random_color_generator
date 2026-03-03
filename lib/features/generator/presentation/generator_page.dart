@@ -26,11 +26,9 @@ class GeneratorPage extends StatelessWidget {
               children: [
                 AppButton(
                   label: 'Hello there',
-                  backgroundColor:
-                      state.buttonBackgroundColor?.withValues(
-                        alpha: 0.2,
-                      ) ??
-                      Colors.black.withValues(alpha: 0.2),
+                  backgroundColor: state.buttonBackgroundColor.withValues(
+                    alpha: 0.2,
+                  ),
                   textColor: Colors.white,
                 ),
                 const SizedBox(
@@ -38,11 +36,10 @@ class GeneratorPage extends StatelessWidget {
                 ),
                 AppButton(
                   label: 'Realign gradients',
-                  backgroundColor:
-                      state.buttonBackgroundColor?.withValues(
-                        alpha: 0.2,
-                      ) ??
-                      Colors.black.withValues(alpha: 0.2),
+                  backgroundColor: state.buttonBackgroundColor
+                    ..withValues(
+                      alpha: 0.2,
+                    ),
                   textColor: Colors.white,
                   onPressed: () =>
                       context.read<GeneratorCubit>().realignGradients(),
