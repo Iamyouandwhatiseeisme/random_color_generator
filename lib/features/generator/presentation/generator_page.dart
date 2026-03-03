@@ -11,9 +11,9 @@ class GeneratorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.read<GeneratorCubit>().generateRandomColor(),
-      child: const Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
+      child:  Scaffold(
+        backgroundColor: context.watch<GeneratorCubit>().state,
+        body: const Center(
           child: Text(
             'Hello there',
             style: TextStyle(
