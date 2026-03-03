@@ -15,7 +15,8 @@ class AppButton extends StatelessWidget {
   /// This is the text color of the button
   final Color textColor;
 
-  /// This is the callback function that will be called when the button is pressed
+  /// This is the callback function that will be called when
+  /// the button is pressed
   final VoidCallback? onPressed;
 
   /// Creates an instance of [AppButton].
