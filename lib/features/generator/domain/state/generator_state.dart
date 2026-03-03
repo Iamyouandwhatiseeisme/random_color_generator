@@ -10,7 +10,6 @@ class GeneratorState {
 
   /// Constructor for GeneratorState, requires backgroundColor and textColor,
   /// and an optional loading map that defaults to
-  /// a map with [GeneratorStateEvent]
   GeneratorState({
     required this.backgroundColor,
     required this.buttonBackgroundColor,
