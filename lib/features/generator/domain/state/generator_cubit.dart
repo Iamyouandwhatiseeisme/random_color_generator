@@ -1,28 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:random_color_generator/di/di.dart';
 import 'package:random_color_generator/features/generator/data/interfaces/generator_interface.dart';
+import 'package:random_color_generator/features/generator/domain/implementations/generator_service.dart';
 import 'package:random_color_generator/features/generator/domain/state/generator_state.dart';
 
 /// This is a Cubit class for managing the state of the color generator feature.
 /// It extends [Cubit] with a state of type [Color]
 class GeneratorCubit extends Cubit<GeneratorState> {
   /// Generator service that generates a random color
-  final GeneratorInterface generatorService;
+  final GeneratorInterface generatorService = getIt.get<GeneratorService>();
 
-  /// Constructor receives an instance of[GeneratorInterface]
   /// and creates an initial state with a default color (black).
-  GeneratorCubit({required this.generatorService})
+  GeneratorCubit()
     : super(
-        GeneratorState(
-          backgroundColor: LinearGradient(
-            colors: [
-              generatorService.generateColor(),
-              generatorService.generateColor(),
-            ],
-          ),
-          buttonBackgroundColor: generatorService.generateColor(),
-        ),
+        GeneratorState(),
       );
+
+  void init() {
+    emit(
+      state.copyWith(
+        backgroundColor: LinearGradient(
+          colors: [
+            generatorService.generateColor(),
+            generatorService.generateColor(),
+          ],
+        ),
+        buttonBackgroundColor: generatorService.generateColor(),
+      ),
+    );
+  }
 
   /// A method used to generate random color from the generator page
   Future<void> generateRandomColor() async {
@@ -45,14 +52,31 @@ class GeneratorCubit extends Cubit<GeneratorState> {
   void realignGradients() {
     final randomGradientDirection1 = generatorService.generateRandomDirection();
     final randomGradientDirection2 = generatorService.generateRandomDirection();
+    if (state.backgroundColor != null &&
+        state.backgroundColor!.colors.isNotEmpty) {
+      emit(
+        state.copyWith(
+          backgroundColor: LinearGradient(
+            begin: randomGradientDirection1,
+            end: randomGradientDirection2,
+            colors: [
+              state.backgroundColor!.colors.first,
+              state.backgroundColor!.colors.last,
+            ],
+          ),
+        ),
+      );
+      return;
+    }
+
     emit(
       state.copyWith(
         backgroundColor: LinearGradient(
           begin: randomGradientDirection1,
           end: randomGradientDirection2,
           colors: [
-            state.backgroundColor.colors.first,
-            state.backgroundColor.colors.last,
+            generatorService.generateColor(),
+            generatorService.generateColor(),
           ],
         ),
       ),

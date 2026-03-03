@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_color_generator/di/di.dart';
-import 'package:random_color_generator/features/generator/domain/implementations/generator_service.dart';
 import 'package:random_color_generator/features/generator/domain/state/generator_cubit.dart';
 import 'package:random_color_generator/features/generator/presentation/generator_page.dart';
 
@@ -21,8 +20,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          GeneratorCubit(generatorService: getIt.get<GeneratorService>()),
+      create: (context) => GeneratorCubit()..init(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Random Color Generator App',
