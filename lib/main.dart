@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:random_color_generator/di/di.dart';
 import 'package:random_color_generator/features/generator/domain/presentation/generator_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DI.init();
   runApp(const AppRoot());
 }
 
