@@ -27,12 +27,13 @@ class GeneratorService implements GeneratorInterface {
     );
     if (colorsList.length == 4) return colorsList;
     colorsList.add(randomColor);
+
     return generateValues(colors: colorsList);
   }
 
   /// This method generates a color from a list of RGBA values.
   @override
   Color generateColorFromList(List<int> colors) {
-    return Color.fromARGB(colors[0], colors[1], colors[2], colors[3]);
+    return Color.fromARGB(colors.first, colors[1], colors[2], colors[3]);
   }
 }
