@@ -8,9 +8,7 @@ class GeneratorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        debugPrint('Tapped on the screen');
-      },
+      onTap: () {},
       child: const Scaffold(
         backgroundColor: Colors.black,
         body: Center(

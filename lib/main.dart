@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:random_color_generator/pages/generator_page.dart';
+import 'package:random_color_generator/features/generator/domain/presentation/generator_page.dart';
 
 void main() {
   runApp(const AppRoot());
