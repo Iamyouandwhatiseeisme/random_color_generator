@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "helloThere": "Hello there",
+  "@helloThere": {
+    "description": "This is main message for generator page"
+  },
+  "reAlignGradients": "Realign gradients",
+  "@reAlignGradients": {
+    "description": "This is the label for the button that realigns the gradients in the generator page"
+  }
+}

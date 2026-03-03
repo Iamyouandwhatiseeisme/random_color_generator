@@ -1,0 +1,11 @@
+{
+  "@@locale": "uk",
+  "helloThere": "Привіт",
+  "@helloThere": {
+    "description": "This is main message for generator page"
+  },
+  "reAlignGradients": "Перевстановити градієнти",
+  "@reAlignGradients": {
+    "description": "This is the label for the button that realigns the gradients in the generator page"
+  }
+}
