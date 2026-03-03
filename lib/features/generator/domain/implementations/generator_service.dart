@@ -10,6 +10,7 @@ class GeneratorService implements GeneratorInterface {
 
   @override
   String generateLightColor() {
+    print('generating color from service');
     throw UnimplementedError();
   }
 }
