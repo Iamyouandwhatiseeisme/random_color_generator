@@ -11,11 +11,10 @@ class GeneratorCubit extends Cubit<Color> {
   /// Constructor receives an instance of[GeneratorInterface]
   /// and creates an initial state with a default color (black).
   GeneratorCubit({required this.generatorService}) : super(Colors.black);
-  
+
   /// A method used to generate random color from the generator page
   void generateRandomColor() {
-   final randomColor =  generatorService
-    .generateLightColor();
+    final randomColor = generatorService.generateColor();
     emit(randomColor);
   }
 }

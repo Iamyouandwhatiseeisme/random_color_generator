@@ -8,13 +8,8 @@ import 'package:random_color_generator/features/generator/data/interfaces/genera
 /// the logic for generating light and dark colors.
 class GeneratorService implements GeneratorInterface {
   @override
-  String generateDarkColor() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Color generateLightColor() {
-    return generateColorFromList(generateRGBAValues());
+  Color generateColor() {
+    return generateColorFromList(generateValues());
   }
 
   @override
@@ -24,17 +19,19 @@ class GeneratorService implements GeneratorInterface {
 
   /// This is a recursive method that generates a list of ints for color values.
 
-  List<int> generateRGBAValues({List<int>? colors = const []}) {
+  @override
+  List<int> generateValues({List<int>? colors = const []}) {
     final colorsList = [...?colors];
     final randomColor = generateRandomNumber(
       DateTime.now().millisecondsSinceEpoch,
     );
     if (colorsList.length == 4) return colorsList;
     colorsList.add(randomColor);
-    return generateRGBAValues(colors: colorsList);
+    return generateValues(colors: colorsList);
   }
 
   /// This method generates a color from a list of RGBA values.
+  @override
   Color generateColorFromList(List<int> colors) {
     return Color.fromARGB(colors[0], colors[1], colors[2], colors[3]);
   }
