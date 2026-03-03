@@ -18,7 +18,6 @@ class GeneratorService implements GeneratorInterface {
   }
 
   /// This is a recursive method that generates a list of ints for color values.
-
   @override
   List<int> generateValues({List<int>? colors = const []}) {
     final colorsList = [...?colors];
