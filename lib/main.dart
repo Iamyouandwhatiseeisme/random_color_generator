@@ -15,14 +15,14 @@ void main() async {
 /// app is ran through this root widget
 class Main extends StatelessWidget {
   /// Creates an instance of [Main].
-  const Main({super.key});
+  const Main();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GeneratorCubit(generatorService: 
-      getIt.get<GeneratorService>()),
+      create: (context) =>
+          GeneratorCubit(generatorService: getIt.get<GeneratorService>()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Random Color Generator App',
