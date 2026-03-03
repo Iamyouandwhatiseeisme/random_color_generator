@@ -22,7 +22,7 @@ class GeneratorService implements GeneratorInterface {
   List<int> generateValues({List<int>? colors = const []}) {
     final colorsList = [...?colors];
     final randomColor = generateRandomNumber();
-    if (colorsList.length == 4) return colorsList;
+    if (colorsList.length == rgbColorListLength) return colorsList;
     colorsList.add(randomColor);
 
     return generateValues(colors: colorsList);
@@ -49,6 +49,7 @@ class GeneratorService implements GeneratorInterface {
       AlignmentGeometry.centerStart,
       AlignmentGeometry.centerEnd,
     ];
+
     return list[generateRandomNumber(
       customCeiling: list.length,
     )];
