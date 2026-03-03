@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_color_generator/features/generator/domain/state/generator_cubit.dart';
 import 'package:random_color_generator/features/generator/presentation/components/app_button.dart';
+import 'package:random_color_generator/features/localization/domain/state/localization_cubit.dart';
+import 'package:random_color_generator/l10n/app_localizations.dart';
 
 /// This is the main page for random color generator App.
 class GeneratorPage extends StatelessWidget {
@@ -19,13 +21,18 @@ class GeneratorPage extends StatelessWidget {
           gradient: state.backgroundColor,
         ),
         child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.language),
+            onPressed: () => context.read<LocalizationCubit>().changeLocale(),
+          ),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AppButton(
-                  label: 'Hello there',
+                  label:
+                      AppLocalizations.of(context)?.helloThere ?? "Hello there",
                   backgroundColor: state.buttonBackgroundColor.withValues(
                     alpha: 0.2,
                   ),
@@ -35,7 +42,9 @@ class GeneratorPage extends StatelessWidget {
                   height: 16,
                 ),
                 AppButton(
-                  label: 'Realign gradients',
+                  label:
+                      AppLocalizations.of(context)?.reAlignGradients ??
+                      "Realign gradients",
                   backgroundColor: state.buttonBackgroundColor
                     ..withValues(
                       alpha: 0.2,
