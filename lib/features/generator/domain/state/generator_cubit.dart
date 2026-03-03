@@ -17,6 +17,7 @@ class GeneratorCubit extends Cubit<GeneratorState> {
         GeneratorState(),
       );
 
+  /// This is initialize method for [GeneratorCubit]
   void init() {
     emit(
       state.copyWith(
