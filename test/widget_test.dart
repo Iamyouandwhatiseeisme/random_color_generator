@@ -6,9 +6,21 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
+import 'package:random_color_generator/di/di.dart';
 import 'package:random_color_generator/main.dart';
 
 void main() {
+  setUp(() async {
+    final getIt = GetIt.instance;
+    await getIt.reset();
+    await DI.init();
+  });
+
+  tearDown(() {
+    GetIt.instance.reset();
+  });
+
   testWidgets('Main app widget test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const Main());
