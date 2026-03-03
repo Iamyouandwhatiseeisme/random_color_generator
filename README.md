@@ -1,14 +1,9 @@
-# flutter_project_template
-[![flutter_project_template](https://nokycucwgzweensacwfy.supabase.co/functions/v1/get_project_badge?projectId=149)](https://nokycucwgzweensacwfy.supabase.co/functions/v1/get_project_url?projectId=149)
+# random_color_generator
 
-📖 Template for flutter projects using solid_lints, CI for tests and analysis.
-
-- Uses latest stable flutter
-- Repo name as your project name
-- Organization from your profile email address or default
+- Generates random colors when the screen is clicked
 
 # Usage
-1. Press "Use this template" on the menu.
-2. Fill Github form with your new repo name and press "Create repository from template"
-3. Wait for it to be created and set up action is complete. In a couple of minutes, you'll see the flutter project created in your repo once Github Actions are complete.
-4. Clone and code.
+
+1. Click screen anywhere to generate random color
+2. Click Realign gradients to change the direction of gradients to random direction
+3. Click language button to change the current language
